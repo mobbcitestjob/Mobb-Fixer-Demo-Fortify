@@ -16,7 +16,7 @@ app.post('/login-not-set', (req, res) => {
   const { username, password } = req.body;
 
   if (username === validUsername && password === validPassword) {
-    res.cookie('session', 'valid', { httpOnly: true, path: '/' });
+    res.cookie('session', 'valid', { secure: true, httpOnly: true, path: '/' });
     res.status(200).send('Login successful');
   } else {
     res.status(401).send('Invalid credentials');
